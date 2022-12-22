@@ -7,6 +7,13 @@ Persists environment 💾  AWS Credentials 🔐 across different terminals 💻
 Add this to your `.bashrc`:
 
 ```sh
+# Source AWS Environment Credentials
+eval "$(aws-env-persist get-env)"
+```
+
+or source it on demand in your current shell via:
+
+```sh
 source <(aws-env-persist get-env)
 ```
 
