@@ -8,7 +8,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-var allowedArgs = []string{"get-env", "save", "get-account", "version", "help"}
+var allowedArgs = []string{"get-env", "save", "clear", "get-account", "version", "help"}
 var choices = []string{"Yes", "No"}
 
 func (m model) Init() tea.Cmd {
@@ -105,6 +105,8 @@ func main() {
 		outputEnvironmentExports()
 	case "save":
 		startInteractiveMode()
+	case "clear":
+		clearIniFile()
 	case "version":
 		fmt.Println(VERSION)
 	case "help":

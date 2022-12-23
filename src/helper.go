@@ -83,6 +83,18 @@ func getAWSConfigPath() string {
 	return awsConfigPath
 }
 
+func clearIniFile() {
+	awsConfigPath := getAWSConfigPath()
+	inifile, err := ini.Load(awsConfigPath)
+	if err != nil {
+		inifile = ini.Empty()
+	}
+	inifile.Section("default").DeleteKey("aws_access_key_id")
+	inifile.Section("default").DeleteKey("aws_secret_access_key")
+	inifile.Section("default").DeleteKey("aws_session_token")
+	inifile.SaveTo(awsConfigPath)
+}
+
 func writeIniFile(awsEnv AWSEnv) {
 	awsConfigPath := getAWSConfigPath()
 	inifile, err := ini.Load(awsConfigPath)
@@ -118,7 +130,13 @@ func outputEnvironmentExports() {
 	if awsEnv.Region != "" {
 		fmt.Println("export AWS_DEFAULT_REGION=" + awsEnv.Region)
 	}
-	fmt.Println("export AWS_ACCESS_KEY_ID=" + awsEnv.AccessKey)
-	fmt.Println("export AWS_SECRET_ACCESS_KEY=" + awsEnv.SecretKey)
-	fmt.Println("export AWS_SESSION_TOKEN=" + awsEnv.SessionToken)
+	if awsEnv.AccessKey != "" {
+		fmt.Println("export AWS_ACCESS_KEY_ID=" + awsEnv.AccessKey)
+	}
+	if awsEnv.SecretKey != "" {
+		fmt.Println("export AWS_SECRET_ACCESS_KEY=" + awsEnv.SecretKey)
+	}
+	if awsEnv.SessionToken != "" {
+		fmt.Println("export AWS_SESSION_TOKEN=" + awsEnv.SessionToken)
+	}
 }
