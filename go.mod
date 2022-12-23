@@ -6,7 +6,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.18.7
 	github.com/aws/aws-sdk-go-v2/service/sts v1.17.7
 	github.com/charmbracelet/bubbletea v0.23.1
-	golang.org/x/exp v0.0.0-20221217163422-3c43f8badb15
 	gopkg.in/ini.v1 v1.67.0
 )
 
