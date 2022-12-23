@@ -9,7 +9,6 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
-	"golang.org/x/exp/slices"
 	"gopkg.in/ini.v1"
 )
 
@@ -18,17 +17,6 @@ func printHelp() {
 	fmt.Println("")
 	fmt.Println("Source the output of get-env to set your AWS environment variables")
 	fmt.Println("Example: source <(aws-env-persist get-env)")
-}
-
-func invaldArgsCheck() {
-	if len(os.Args) < 2 {
-		printHelp()
-		os.Exit(1)
-	}
-	if !slices.Contains(allowedArgs, os.Args[1]) {
-		printHelp()
-		os.Exit(1)
-	}
 }
 
 func createDirectoryIfNotExists(dir string) {

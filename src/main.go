@@ -87,9 +87,12 @@ func startInteractiveMode() {
 }
 
 func main() {
-	invaldArgsCheck()
+	complete()
 
-	mode := os.Args[1]
+	mode := ""
+	if len(os.Args) > 1 {
+		mode = os.Args[1]
+	}
 
 	// Make sure the config directory exists
 	// It should exist, if you have the aws cli installed,
@@ -106,6 +109,7 @@ func main() {
 	case "version":
 		fmt.Println(VERSION)
 	case "help":
+	default:
 		printHelp()
 	}
 }

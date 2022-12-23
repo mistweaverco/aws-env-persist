@@ -7,7 +7,9 @@ Persists environment 💾  AWS Credentials 🔐 across different terminals 💻
 Add this to your `.bashrc`:
 
 ```sh
-# Source AWS Environment Credentials
+# Enable auto-completion
+complete -C /usr/local/bin/aws-env-persist aws-env-persist
+# Source AWS environment credentials automatically
 eval "$(aws-env-persist get-env)"
 ```
 
