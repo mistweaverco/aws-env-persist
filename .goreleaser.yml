@@ -1,0 +1,23 @@
+builds:
+- env:
+  - CGO_ENABLED=0
+  main: './src/'
+  binary: 'aws-env-persist'
+  goos:
+    - linux
+    - darwin
+  goarch:
+    - amd64
+    - arm
+    - arm64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+

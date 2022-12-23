@@ -8,7 +8,6 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-var VERSION = "0.0.1"
 var allowedArgs = []string{"get-env", "save", "get-account", "version", "help"}
 var choices = []string{"Yes", "No"}
 
