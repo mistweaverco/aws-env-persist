@@ -4,7 +4,7 @@ Persists environment 💾  AWS Credentials 🔐 across different terminals 💻
 
 ## Installation
 
-Download the latest binary from the [release page](/releases)
+Download the latest binary from the [release page](https://github.com/mistweaverco/aws-env-persist/releases)
 Save it to `/usr/local/bin/aws-env-persist`.
 Make it executable `chmod +x /usr/local/bin/aws-env-persist`
 
